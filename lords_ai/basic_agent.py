@@ -1,9 +1,11 @@
-import argparse
-import sys
+import logging
 
 import gym
-from gym import wrappers, logger
+from gym import wrappers
 from lord_gym.envs.lord_env import LordEnv  # does registration
+
+logging.basicConfig(level=logging.DEBUG)
+
 
 class BasicAgent(object):
     """The world's simplest agent!"""
@@ -12,6 +14,7 @@ class BasicAgent(object):
 
     def act(self, observation, reward, done):
         return self.action_space.sample()
+
 
 if __name__ == '__main__':
     env = gym.make('lord-v0')
