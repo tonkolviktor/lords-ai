@@ -98,7 +98,7 @@ class DeepAgent():
 
                 # Apply the sampled action in our environment
                 state_next, reward, done, _ = self.env.step(action)
-                state_next = np.array(state_next)
+                state_next = np.array(state_next)  # TODO process resources, add flag for each "buyable" elements, add weekly income variable
 
                 episode_reward += reward
 

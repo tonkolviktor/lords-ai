@@ -16,8 +16,9 @@ def create_q_model(num_actions: int):
     hidden = layers.BatchNormalization()(inputs)
     hidden = layers.Dense(28, activation="relu")(hidden)
     hidden = layers.Dense(56, activation="relu")(hidden)
+    hidden = layers.BatchNormalization()(hidden)
     hidden = layers.Dense(56, activation="relu")(hidden)
     hidden = layers.Dense(28, activation="relu")(hidden)
-    action = layers.Dense(num_actions, activation="linear")(hidden)
+    action = layers.Dense(num_actions, activation="softmax")(hidden)
 
     return models.Model(inputs=inputs, outputs=action)
